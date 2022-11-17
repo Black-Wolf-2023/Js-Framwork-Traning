@@ -5,41 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scroll-Trigger-App</title>
-
-    <style>
-        .box{
-            width: 100px;
-            height: 100px;
-            background-color: lightblue;
-            opacity: 0;
-        }
-        .test{
-            height: 1000px;
-        }
-    </style>
-    
 </head>
-<body>
-        <div class="test"></div>
-        <div class="box"></div>
-        <div class="test"></div>
+<body>  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
 
     <script>
-     gsap.registerPlugin(ScrollTrigger)
-
-      gsap.to('.box',{
-        scrollTrigger:{
-            trigger: ".box",
-            toggleActions:"restart pause reverse pause",
-            scrub:true
-        }, 
-        x:"90vw",
-        duration:3,
-        opacity:1
-      })
+         gsap.registerPlugin(ScrollTrigger);
     </script>
 </body>
 </html>
@@ -78,7 +51,7 @@
    Value of prop => {() => "+=" + document.querySelector(".c").offsetWidth} 
 -->
 
-<!-- marker :
+<!-- markers :
 
     // For See The Start and End of Scrolling by markers (by Defualt it will be fasle)
     Value of prop => {"flase","true"}
@@ -92,3 +65,16 @@
 
 
 -->
+
+<!-- gsap(the element who will moving){
+      scrolltrigger:
+       trigger: The elment who markers start from him 
+  }
+ -->
+
+ <!-- toggleClass: 
+    
+    //Toggle Class When Elemnt is in view 
+      {"className Here"}
+
+  -->
