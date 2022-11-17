@@ -5,8 +5,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scroll-Trigger-App</title>
+
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            opacity: 0;
+        }
+        .test{
+            height: 1000px;
+        }
+    </style>
+    
 </head>
 <body>
-    
+        <div class="test"></div>
+        <div class="box"></div>
+        <div class="test"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+
+    <script>
+     gsap.registerPlugin(ScrollTrigger)
+
+      gsap.to('.box',{
+        scrollTrigger:{
+            trigger: ".box",
+            toggleActions:"restart pause reverse pause",
+            scrub:true
+        }, 
+        x:"90vw",
+        duration:3,
+        opacity:1
+      })
+    </script>
 </body>
 </html>
+
+<!-- Helper Scroll Trigger -->
+
+<!-- toggleActions:
+
+   "{ (MainViewBoard) (The-EndPount) (The-BackPount)  (Improve-Performuse) "}
+
+    => {"play, pause, resume, restart, reverse, complete, reset"} 
+-->
+
+
+<!-- start :
+
+    // For Contoll The Starting of Scrolling (by default it will be "top top")
+
+   "{ (Position of Target Eelement) (Position Of View Port)"}
+
+    Value of prop =>  {(top,bottom,center,pixicels(px),persentage(%)) (top,bottom,center)} 
+
+    // For Responsive Designs
+    Value of prop =>  {() => "+=" + document.querySelector(".c").offsetWidth} 
+-->
+
+<!-- end :
+
+    // For Contoll The Ending of Scrolling (by default it will be "bottom top")
+
+   "{ (Position of Target Eelement) (Position Of View Port)"}
+
+  Value of prop => {(top,bottom,center,pixicels(px),persentage(%)) (top,bottom,center)} 
+    
+    // For Responsive Designs
+   Value of prop => {() => "+=" + document.querySelector(".c").offsetWidth} 
+-->
+
+<!-- marker :
+
+    // For See The Start and End of Scrolling by markers (by Defualt it will be fasle)
+    Value of prop => {"flase","true"}
+
+-->
+<!-- scrub : 
+
+    // Scrub Element Back and Revece During Scrolling (by Defualt it will be fasle)
+    Value of prop => {"flase","true"}
+    Number for Smoth Timing =>  {1,2,3...}
+
+
+-->
