@@ -5,14 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scroll-Trigger-App</title>
+    <link rel="stylesheet" href="./objecter-animater.css">
+    <style>
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        margin: 100px 0 ;
+        /* flex-direction: column; */
+        background-color: gray;
+    }
+
+    @media screen and (max-width:600px) {
+        .container{
+            flex-direction: column;
+        }
+    }
+
+        body{
+            height: 10000px;
+        }
+        .cube{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .test{
+            display: none;
+        }
+    </style>
 </head>
-<body>  
+<body> 
+    <div class="" style="height: 100vh;">Test</div>
+    <div class="container object-left" style="background-color: gray;">
+        <div class="object-left-hidder cube object" timing = "1" style="background-color:lightcoral;">1</div>
+        <div class="object-left-hidder cube object" timing = ".7" style="background-color:lightblue">2</div>
+        <div class="object-left-hidder cube object" timing = ".4" style="background-color:lightgray">3</div>
+        <div class="object-left-hidder cube object" timing = ".1" style="background-color:lightgray">3</div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
 
     <script>
          gsap.registerPlugin(ScrollTrigger);
+
+        
+         document.querySelectorAll('.cube').forEach((e,i) => {
+            gsap.to(e,{
+            scrollTrigger:{
+                trigger:e,
+                markers:true,
+                toggleClass:"object-target-left",
+                start:"top center",
+                end:() => `bottom ${window.innerHeight * .3}`
+            },
+         })
+         })
+
+         document.querySelectorAll('.object').forEach(e => {
+            let object__parent = document.querySelector('.object').parentElement;
+            if(getComputedStyle(object__parent).flexDirection == "column") {
+                e.style.animationDelay = 0;
+            }else{
+                e.style.animationDelay = `${Number(e.getAttribute('timing'))}s`;
+            }
+         })
+
+         window.onscroll = () => {
+            document.querySelectorAll('.object').forEach(e => {
+                if(e.classList.contains('object-target-left')){ e.classList.remove('object-left-hidder')}
+                if(!e.classList.contains('object-target-left')){ e.classList.add('object-left-hidder')}
+            })
+         }
     </script>
 </body>
 </html>

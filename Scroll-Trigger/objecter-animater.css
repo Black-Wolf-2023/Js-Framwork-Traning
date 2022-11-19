@@ -1,0 +1,127 @@
+
+.object-top{
+    overflow: hidden;
+}
+.object-top-hidder{
+    opacity: 0;
+}
+.object-target-top{
+    animation: objectAnimatetop .5s ease 1 forwards;
+}
+@keyframes objectAnimatetop{
+    0%{
+        transform: translateY(400px);
+        opacity: .1;
+    }
+    33.3%{
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+    66.6%{
+        transform: translateY(50px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+
+.object-bottom{
+    overflow: hidden;
+}
+.object-bottom-hidder{
+    opacity: 0;
+}
+.object-target-bottom{
+    animation: objectAnimatebottom .5s ease 1 forwards;
+}
+@keyframes objectAnimatebottom{
+    0%{
+        transform: translateY(-400px);
+        opacity: .1;
+    }
+    33.3%{
+        transform: translateY(50px);
+        opacity: 1;
+    }
+    66.6%{
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+
+.object-left{
+    overflow: hidden;
+}
+.object-left-hidder{
+    animation: objectAnimateleftBack.5s ease 1 forwards;
+}
+.object-target-left{
+    animation: objectAnimateleft .5s ease 1 forwards;
+    transform: translateX(-400px);
+    opacity: 0;
+}
+@keyframes objectAnimateleft{
+    0%{
+        transform: translateX(-400px);
+        opacity: 0;
+    }
+    33.3%{
+        transform: translateX(50px);
+        opacity: 1;
+    }
+    66.6%{
+        transform: translateX(-50px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes objectAnimateleftBack{
+    0%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-400px);
+        opacity: 0;
+    }
+}
+
+
+.object-right{
+    overflow: hidden;
+}
+.object-right-hidder{
+    opacity: 0;
+}
+.object-target-right{
+    animation: objectAnimateright .5s ease 1 forwards;
+}
+@keyframes objectAnimateright{
+    0%{
+        transform: translateX(400px);
+        opacity: .1;
+    }
+    33.3%{
+        transform: translateX(-50px);
+        opacity: 1;
+    }
+    66.6%{
+        transform: translateX(50px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
